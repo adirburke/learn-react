@@ -1,36 +1,20 @@
-import React from 'react'
+import React, { useState } from "react"
 
+// Convert the class below to a functional component that uses the useState hook to initalize a count vartiable to 0 and display the count on the screen.
+// Don't worry about the part where the button changes the count quite yet, that's what you're here to learn about!
 
-class App extends React.Component {
+function App() {
 
-    constructor() {
-        super()
-        this.state = {
-            count: 0
-        }
-        // this.handleClick = this.handleClick.bind(this)
-    }
-    handleClick() { // this.setState({count: this.state.count + 1})
-    console.log("Test")
-        this.setState(state => {
-            return {
-                count: state.count + 1
-            }
-        })
-    }
+    const [count, setCount] = useState(0)
 
-
-    render() {
         return (
             <div>
-                <h1>{
-                    this.state.count
-                }</h1>
-                <button onClick={() => this.handleClick() }>Change!</button>
+                <h1>{count}</h1>
+                <button onClick={() => setCount(count + 1)}>Increment!</button>
+                <button onClick={() => setCount(count - 1)}>Decrement!</button>
             </div>
         )
     }
-}
 
 
 export default App
